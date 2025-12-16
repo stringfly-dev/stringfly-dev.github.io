@@ -144,18 +144,34 @@
 //   });
 // });
 
-document.querySelectorAll("a.card[data-nav='true']").forEach(card => {
+document.querySelectorAll("a.card").forEach(card => {
   card.addEventListener("click", e => {
+
+    // intercept ทุกครั้ง
     e.preventDefault();
 
     const url = card.getAttribute("href");
-    if (!url || url === "#" || url.startsWith("javascript")) return;
-
-    const cleanUrl = url.split("#")[0];
 
     const portal = document.getElementById("portalEffect");
-    const rect = card.getBoundingClientRect();
 
+    // helper: cleanup animation/state
+    const resetPortal = () => {
+      if (!portal) return;
+      portal.style.display = "none";
+      portal.style.removeProperty("--cx");
+      portal.style.removeProperty("--cy");
+    };
+
+    // ❌ invalid / non-navigation link
+    if (!url || url === "#" || url.startsWith("javascript")) {
+      resetPortal();
+      return;
+    }
+
+    // normalize url (กัน hash)
+    const cleanUrl = url.split("#")[0];
+
+    const rect = card.getBoundingClientRect();
     portal.style.setProperty("--cx", rect.left + rect.width / 2 + "px");
     portal.style.setProperty("--cy", rect.top + rect.height / 2 + "px");
     portal.style.display = "block";
@@ -171,6 +187,7 @@ document.querySelectorAll("a.card[data-nav='true']").forEach(card => {
     setTimeout(go, 1200);
   });
 });
+
 
 
 </script>
