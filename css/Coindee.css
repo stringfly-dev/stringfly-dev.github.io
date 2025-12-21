@@ -27,6 +27,7 @@ body {
 /* =========================================
    HERO SECTION (Desktop + Responsive)
 ========================================= */
+
 .back-btn {
   position: absolute;
   top: 24px;
@@ -34,7 +35,7 @@ body {
   cursor: pointer;
   font-size: 1vw;
   text-decoration: none;
-  color: #c8b4ff;
+  color: white;
 
   z-index: 20; /* ให้ลอยเหนือภาพ */
 }
@@ -45,7 +46,11 @@ body {
 
 /* จัดโครงสร้าง grid ใหม่: ซ้าย 35% ขวา 65% */
 .project-hero {
-  background: #0c0d0f;
+  background: linear-gradient(
+    180deg,
+    #202236 0%,
+    #121423 100%
+  );
   border-radius: 20px;
   width: 97vw;
   height: 45vw;
@@ -66,25 +71,28 @@ body {
 .hero-left {
   grid-area: left;
   width: 100%;
-  /* padding-right: 32px; */
   padding: 10% 1%;
 }
 
 /* ฝั่งขวา (รูป) */
 .hero-right {
   grid-area: right;
-  position: relative;
-  width: 130%;
-  padding: 0% 1%;
+  position: absolute;
+  left: -10vw;
+  width: 100%;
+  padding: 0% 0%;
+  display: flex;
+  align-items: center;      /* กึ่งกลางแนวตั้ง */
+  justify-content: left;  /* กึ่งกลางแนวนอน */
 }
+
 
 /* รูปด้านขวาให้กิน 65% */
 .hero-image {
-  width: 100%;     /* ครอบพื้นที่ของ column ขวา (ซึ่งตอนนี้คือ 65%) */
+  width: 67vw;  
   height: auto;
-  object-fit: contain;
-  transform: translateX(-26%);
 }
+
 
 /* จัดให้อยู่บรรทัดเดียวกัน */
 .hero-title-row {
@@ -94,8 +102,9 @@ body {
 
 /* ปรับขนาด icon */
 .hero-logo {
-  width: 5vw;
-  height: 5vw;
+  width: 10vw;
+  height: auto;
+  padding: 0.6vw;
 }
 
 /* ==============================================
@@ -144,14 +153,14 @@ body {
    SPACING BETWEEN BLOCKS
 ================================================= */
 .hero-block {
-  margin-bottom: 12%;
+  margin-bottom: 5%;
 }
 
 .hero-meta {
   margin-top: -6%;
   grid-area: meta;
   display: grid;
-  grid-template-columns: 15% 35% 15% 25%;
+  grid-template-columns: 12% 35% 15% 25%;
   align-items: start;
   margin-bottom: 3rem;
 }
@@ -180,35 +189,40 @@ body {
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 1%; 
-  margin-top: -3%;
+  gap: 0.6vw 0.5vw;
+  transform: translateY(-0.8vw);
 }
 
+/* pill tag */
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(90deg, #4E3CEC4D, #4E3CEC4D);
-  padding: 0.8% 3%;
-  border-radius: 999px;   /* ทำให้ pill shape */
-  font-size: 0.8vw;
-  color: #C9C3FF;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  white-space: nowrap;    /* กันขึ้นบรรทัดใหม่ในปุ่ม */
+  gap: 0.4vw;
 
-   transition: 
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+  padding: 0.45vw 0.9vw;
+  border-radius: 999px;
+
+  background: #077AFD4D;
+  backdrop-filter: blur(2px);
+
+  font-size: 0.75vw;
+  font-weight: 500;
+  color: #D3E3FF;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+
+  transition: 
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
-
 .tag-icon {
-  width: 100%;
-  height: 100%;
+  width: 0.9vw;
+  height: 0.9vw;
+  color: #D3E3FF;
   object-fit: contain;
   opacity: 0.9;
+  filter: brightness(0) invert(1); /* ทำให้เป็นขาว */
 }
 
 .tool-row {
@@ -447,7 +461,7 @@ body.is-going-back {
 .case-dot {
   width: 0.7vw;
   height: 0.7vw;
-  background: #5b5cff;
+  background: #077AFD;
   border-radius: 4px;
   flex-shrink: 0;
 }
@@ -472,6 +486,13 @@ body.is-going-back {
   width: 100%;
 }
 
+.media-card-h {
+  width: 100%;
+}
+
+.media-card-cus {
+  width: 100%;
+}
 
 .media-card video,
 .media-card img {
@@ -491,10 +512,28 @@ body.is-going-back {
   object-fit: cover;
 }
 
+.media-card-h video,
+.media-card-h img{
+  width: 100%;
+  
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 .media-placeholder {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;   /* ปรับตาม ref ได้ เช่น 16/9, 4/3 */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #111;
+}
+
+.media-placeholder-h {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 16.5;   /* ปรับตาม ref ได้ เช่น 16/9, 4/3 */
   overflow: hidden;
   border-radius: 12px;
   background: #111;
@@ -509,6 +548,39 @@ body.is-going-back {
   border-radius: 12px;
   background: #111;
 }
+
+.media-fullplaceholder-white {
+  /* Layout */
+  display: block;            /* Flow: Horizontal */
+  flex-direction: row;
+  gap: 15px;                     /* Gap */
+  
+  width: 88%;
+  height: auto;                  /* Hug */
+
+  padding: 1.5vw;
+
+  /* Visual */
+  background: #F7F7F7;
+  border: 1px solid #D1D1D1;
+  border-radius: 18px;
+
+  /* Optional polish (ไม่ขัด spec) */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+
+  overflow: hidden;
+}
+
+.media-fullplaceholder-white img {
+  aspect-ratio: 1.303;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;   /* สำหรับ flow diagram */
+}
+
 
 /* IMG */
 .media-placeholder img{
@@ -562,10 +634,40 @@ body.is-going-back {
   justify-content: center;
 }
 
+.footer-pattern {
+  position: absolute;
+  top: 1.5vw;
+  right: 2vw;
+
+  width: 8vw;          /* ปรับตามขนาดที่อยากได้ */
+  max-width: 140px;
+  height: auto;
+
+  pointer-events: none; /* กันไม่ให้บังการคลิก */
+
+  z-index: 1;          /* อยู่เหนือพื้นหลัง แต่ใต้ text */
+}
+
+.header-pattern {
+  position: absolute;
+  top: 2vw;
+  right: 1.5vw;
+  width: 40vw;          /* ปรับตามขนาดที่อยากได้ */
+  height: 40vw;
+  
+  pointer-events: none; /* กันไม่ให้บังการคลิก */
+
+  z-index: 1;          /* อยู่เหนือพื้นหลัง แต่ใต้ text */
+}
+
 .footer-inner {
   width: 100%;
   max-width: 92vw;
-  background: #0F0F15;
+  background: linear-gradient(
+    180deg,
+    #0F0F15 0%,
+    #202236 100%
+  );
   border-radius: 20px;
   padding: 4vw 5vw 3vw;
   color: #eaeaea;
@@ -580,7 +682,7 @@ body.is-going-back {
 .footer-grid {
   display: grid;
   max-width: 60vw;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 4vw;
 }
 
@@ -594,13 +696,14 @@ body.is-going-back {
 .footer-title {
   font-size: 0.75vw;
   letter-spacing: 0.12em;
-  color: #9a9a9a;
+  color: #FFFFFF80;
   font-weight: 600;
   margin: 0;
 }
 
 /* LIST */
 .footer-list {
+  width: 25vw;
   list-style: disc;
   padding-left: 18px;
   margin: 0;
@@ -652,6 +755,17 @@ body.is-going-back {
   transform: rotate(-45deg) translateX(4px);
 }
 
+.section-divider {
+  width: 50vw;
+  height: 0;
+
+  margin: 0vw 0vw 3vw 0;          /* center alignment */
+  
+  border-top: 1px dashed #A49F92;
+
+  opacity: 1;                  /* ไม่ต้องลด เพราะสีถูกแล้ว */
+}
+
 
 /* ===============================
    RESPONSIVE
@@ -673,6 +787,11 @@ body.is-going-back {
   max-width: 100%;
 }
 
+.case-media-grid-cus {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
 
 /* Responsive: จอเล็กให้เรียงลง */
 @media (max-width: 900px) {
