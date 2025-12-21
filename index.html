@@ -54,7 +54,7 @@
       <div class="chip year">2025</div>
     </a>
 
-    <a class="card card-col1-bottom card-short" href="#">
+    <a class="card card-col1-bottom card-short" href="regalia.html">
       <video autoplay muted loop playsinline src="assets/regalia.mp4"></video>
       <div class="card-info">
         <h3 class="card-title">Regalia</h3>
@@ -65,7 +65,7 @@
     </a>
 
     <!-- COLUMN 2 -->
-    <a class="card card-col2-top card-short" href="#">
+    <a class="card card-col2-top card-short" href="Radiant.html">
       <video autoplay muted loop playsinline src="assets/radiant.mp4"></video>
       <div class="card-info">
         <h3 class="card-title">Radiant</h3>
@@ -75,7 +75,7 @@
       <div class="chip year">2025</div>
     </a>
 
-    <a class="card card-col2-bottom card-tall" href="#">
+    <a class="card card-col2-bottom card-tall" href="Nexus.html">
       <video autoplay muted loop playsinline src="assets/nexus.mp4"></video>
       <div class="card-info">
         <h3 class="card-title">Nexus</h3>
@@ -86,7 +86,7 @@
     </a>
 
     <!-- COLUMN 3 -->
-    <a class="card card-col3-top card-tall" href="#">
+    <a class="card card-col3-top card-tall" href="Aisekai.html">
       <video autoplay muted loop playsinline src="assets/aisekai.mp4"></video>
       <div class="card-info">
         <h3 class="card-title">Aisekai</h3>
@@ -96,7 +96,7 @@
       <div class="chip year">2025</div>
     </a>
 
-    <a class="card card-col3-bottom card-short" href="#">
+    <a class="card card-col3-bottom card-short" href="Coindee.html">
       <video autoplay muted loop playsinline src="assets/cryptomind.mov"></video>
       <div class="card-info">
         <h3 class="card-title">Coindee</h3>
@@ -111,39 +111,6 @@
 </div>
 <script>
   
- 
-// document.querySelectorAll("a.card").forEach(card => {
-//   card.addEventListener("click", e => {
-
-//     // ❌ ถ้าไม่ใช่ navigation card → ปล่อยให้เป็น normal interaction
-//     if (card.dataset.nav !== "true") return;
-
-//     const url = card.getAttribute("href");
-
-//     // กันกรณี href ผิด
-//     if (!url || url === "#" || url.startsWith("javascript")) return;
-
-//     e.preventDefault();
-
-//     const portal = document.getElementById("portalEffect");
-//     const rect = card.getBoundingClientRect();
-
-//     portal.style.setProperty("--cx", rect.left + rect.width / 2 + "px");
-//     portal.style.setProperty("--cy", rect.top + rect.height / 2 + "px");
-//     portal.style.display = "block";
-
-//     let navigated = false;
-//     const go = () => {
-//       if (navigated) return;
-//       navigated = true;
-//       window.location.assign(url);
-//     };
-
-//     portal.addEventListener("animationend", go, { once: true });
-//     setTimeout(go, 1500);
-//   });
-// });
-
 document.querySelectorAll("a.card").forEach(card => {
   card.addEventListener("click", e => {
 
@@ -187,8 +154,6 @@ document.querySelectorAll("a.card").forEach(card => {
     setTimeout(go, 1200);
   });
 });
-
-
 
 </script>
 </body>
