@@ -32,15 +32,34 @@ body {
   position: absolute;
   top: 24px;
   left: 28px;
-  cursor: pointer;
-  font-size: 1vw;
-  text-decoration: none;
-  color: white;
 
-  z-index: 20; /* ให้ลอยเหนือภาพ */
+  display: inline-flex;       
+  align-items: center;      
+  gap: 6px;                  
+
+  padding: 8px 14px;              /* เตรียมพื้นที่ไว้ตั้งแต่ปกติ */
+  border-radius: 0.5vw;
+
+  cursor: pointer;
+  font-size: 0.9vw;
+  text-decoration: none;
+  color: #FFFFFF;
+  z-index: 20;
+
+  background: transparent;
+  transition: 
+    background 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.back-btn img {
+  width: 1vw;
+  height: 1vh;
+  display: block;   /* กัน baseline เพี้ยน */
 }
 
 .back-btn:hover {
+  background: #262626;
   opacity: 0.8;
 }
 
@@ -724,12 +743,18 @@ body.is-going-back {
   right: 3vw;
   bottom: 2.5vw;
   font-size: 0.9vw;
-  color: #ffffffcc;
+  padding: 8px 14px; 
+  border-radius: 0.5vw;
+  color: #FFFFFF;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  background: transparent;
+  transition: 
+    background 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .footer-next span {
@@ -737,8 +762,8 @@ body.is-going-back {
 }
 
 .footer-next:hover {
+  background: #262626;
   opacity: 0.8;
-  transform: translateX(4px);
 }
 
 .arrow-css {
@@ -751,9 +776,6 @@ body.is-going-back {
   transition: transform 0.25s ease;
 }
 
-.footer-next:hover .arrow-css {
-  transform: rotate(-45deg) translateX(4px);
-}
 
 .section-divider {
   width: 50vw;

@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'DM Sans';
   src: url('/font/DMSans-VariableFont_opsz\,wght.ttf') format('truetype');
-  font-weight: 600;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -9,13 +9,13 @@
 @font-face {
   font-family: 'DM Sans';
   src: url('/font/DMSans-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
-  font-weight: 600;
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 
 :root {
-  --bg: #f3f2f0;
+  --bg: #EEEDEA;
   --muted: #6b6b6b;
   --gap: 26px;
 }
@@ -29,7 +29,7 @@ html, body {
   height: 100vh;
   font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont,
                'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
+  background: #EEEDEA;
   color: #111;
 }
 
@@ -72,12 +72,21 @@ html, body {
   gap: 16px;
 }
 
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;   
+}
+
 .profile-img {
-  width: 68px;
-  height: 68px;
+  width: 5.5vw;
+  height: 5.5vw;
   border-radius: 10px;
   object-fit: cover;
   transition: transform .2s ease;
+  transform: rotate(4deg);
+  padding: 0.2vw;
+  background: #fff;
 }
 
 /* Hover → wiggle motion */
@@ -99,16 +108,21 @@ html, body {
 .profile-buttons {
   display: flex;
   gap: 8px;
+  padding: 0.4vw 0vw 0vw 0vw;
 }
 
 .btn {
-  background: #e7e4df;
+  background: #E3DED2;
   padding: 6px 12px;
   font-size: 13px;
   border-radius: 8px;
   box-shadow: 0 1px 0 rgba(0,0,0,.06);
   text-decoration: none;
   color: #111;
+}
+
+.btn:hover {
+  background: #DCD4C2;
 }
 
 /* GRID (Responsive Masonry) */
@@ -204,23 +218,44 @@ html, body {
   color: rgba(255,255,255,.9);
 }
 
-/* CHIPS */
-.chip {
+.chip-group {
   position: absolute;
   bottom: 14px;
   left: 14px;
-  background: rgba(0,0,0,.48);
-  padding: 6px 12px;
-  border-radius: 14px;
-  color: white;
-  font-size: 12px;
+  display: flex;
+  gap: 8px;
 }
 
+/* chip เดิม */
+.chip {
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.3vw 0.6vw;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.7vw;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;                             /* Gap 2px */
+
+  white-space: nowrap;
+  font-weight: 400 !important; 
+}
+
+/* ไม่ต้อง absolute แล้ว */
 .chip.year {
-  right: 14px;
-  left: auto;
+  position: static;
+  font-size: 0.7vw;
+  font-weight: 400 !important; 
 }
 
+.chip.custom {
+  position: static;
+  font-size: 0.7vw;
+  font-weight: 400 !important; 
+  background: #F6B51E33;
+}
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
   .page {
@@ -261,7 +296,7 @@ html, body {
   100% { transform: rotate(0deg); }
 }
 
-.portal {
+/* .portal {
   position: fixed;
   inset: 0;
   display: none;
@@ -273,6 +308,20 @@ html, body {
 
   clip-path: circle(0% at var(--cx) var(--cy));
 
+  animation: glassPortal 1.2s ease forwards;
+} */
+
+.portal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+  pointer-events: none;
+
+  backdrop-filter: blur(0px);        /* ← เหลือแค่ blur */
+  background: transparent;           /* ← เอาสีดำออก */
+
+  clip-path: circle(0% at var(--cx) var(--cy));
   animation: glassPortal 1.2s ease forwards;
 }
 
