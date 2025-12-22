@@ -235,8 +235,8 @@ body {
 }
 
 .tag-icon {
-  width: 0.9vw;
-  height: 0.9vw;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   opacity: 0.9;
   filter: brightness(0) invert(1); /* ทำให้เป็นขาว */
@@ -761,37 +761,324 @@ body.is-going-back {
 }
 
 
-/* Responsive: จอเล็กให้เรียงลง */
-@media (max-width: 900px) {
-  .case-media-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+
+  /* ===== BODY ===== */
+  body {
+    padding: 0;
   }
-  .page-layout {
+
+  /* ===== HERO ===== */
+  .project-hero {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    box-sizing: border-box;
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "right"
+      "left"
+      "meta";
+    /* 🔒 lock padding */
+    padding-inline: 16px !important;       /* ซ้าย + ขวา */
+    padding-block-start: 16px;  /* บน */
+    padding-block-end: 0px;    /* ล่าง (ปรับได้) */
+    margin-bottom: 1rem;
+    overflow: clip; /* กัน child ดันขอบ */
+  }
+
+  .header-pattern {
+    display: none;
+  }
+
+  .back-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 32px; 
+    height: 32px; 
+    padding: 0; 
+    gap: 10px; 
+    background: none; 
+    border-radius: 50%; 
+    font-size: 14px;
+  }
+
+  .back-btn img {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+
+
+  /* ===== HERO LEFT ===== */
+  .hero-left {
+    padding: 0;
+  }
+
+ .hero-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    gap: 8px;
+    padding-bottom: 0rem;
+  }
+
+  .hero-logo {
+    width: 43.00010681152344px;
+    height: 28.591215133666992px;
+    margin-left: 0rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    margin-bottom: 0px;
+    padding-top: 0.8rem;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .hero-block {
+    margin-bottom: 20px;
+  }
+
+  /* ===== HERO RIGHT (IMAGE) ===== */
+  .hero-right {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin-top: 2rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    position: relative;
+    transform: none;
+  }
+
+
+  /* ===== META ===== */
+  .meta-item {
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+    gap: 0px;
+    margin-top: -4%;
+  }
+
+  .meta-label {
+    font-size: 11px;
+    margin-top: 0.5rem;
+    margin-bottom: 0%;
+    padding-top: 0.8rem;
+    padding-bottom: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .meta-value {
+    font-size: 14px;
+    margin-top: 0.5rem;
+  }
+
+  .tag-row {
+    margin-top: 1rem;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .tool-row {
+    margin-top: 6px;
+  }
+
+  .tool-row img {
+    width: 28px;
+    padding: 4px;
+    animation: none; /* ปิด wiggle บน mobile */
+  }
+
+  /* ===== CASE BODY ===== */
+  .case-body {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  /* TOC – ปิดบน mobile */
+  .sidebar.toc {
+    display: none;
+  }
+
+  /* CONTENT */
+  .content-wrapper {
+    justify-content: flex-start;
   }
 
   .content {
     max-width: 100%;
+    padding: 0;
+  }
+
+  .content-section {
+    margin-bottom: 48px;
+  }
+
+  /* ===== CASE HEADER ===== */
+  .case-eyebrow {
+    font-size: 11px;
+  }
+
+  .case-title {
+    font-size: 20px;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .case-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .case-description {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== MEDIA ===== */
+  .case-media-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .case-media-grid-full {
+    gap: 16px;
+  }
+
+  .media-placeholder,
+  .media-fullplaceholder {
+    border-radius: 14px;
+  }
+
+  /* ===== FOOTER ===== */
+  .content-footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px;  
+    height: auto;
+    padding-top: 4.5rem;   /* ↓ จาก 2rem */
+    padding-bottom: 8rem; /* เพิ่มนิดเดียวพอ */
   }
 
   .footer-grid {
+    max-width: 100%;
     grid-template-columns: 1fr;
     gap: 32px;
   }
 
   .footer-title {
     font-size: 12px;
+    margin: 0;
+    padding-left: 2rem;
+  }
+
+  .footer-col {
+    max-width: 640px;     /* ปรับได้ 560–720 */
+    margin: 0 auto;
+  }
+
+  .footer-list {
+     padding-left: 1.25rem;   /* คุมระยะ bullet */
+     width: 80%;
+     margin: 0 auto;
   }
 
   .footer-list li {
     font-size: 14px;
+    line-height: 1.6;
+    
+  }
+
+  .footer-pattern {
+    position: absolute;
+    top: 1.5vw;
+    right: 2vw;
+
+    width: 15%;          /* ปรับตามขนาดที่อยากได้ */
+    height: auto;
+
+    pointer-events: none; /* กันไม่ให้บังการคลิก */
+
+    z-index: 1;          /* อยู่เหนือพื้นหลัง แต่ใต้ text */
   }
 
   .footer-next {
-    position: static;
-    margin-top: 32px;
-    align-self: flex-end;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;              /* หรือ top ตาม design */
+    transform: translateX(-50%);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     font-size: 14px;
   }
-}
 
+
+  .arrow-css {
+    width: 6px;
+    height: 6px;
+  }
+}
