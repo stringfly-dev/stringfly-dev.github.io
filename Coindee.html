@@ -11,10 +11,46 @@
   <link rel="icon" type="image/svg+xml" href="assets/Favicon_SVG.svg">
   <link rel="icon" type="image/svg+xml" sizes="32x32" href="assets/Favicon_32px.svg">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicon_16px.png">
-  <title>Ananya V | Coindee</title>
+  <title>Ice Ananya | Coindee</title>
 </head>
 
 <body>
+
+  <!-- MOBILE TOP BAR -->
+<header class="mobile-topbar">
+  <div class="topbar-left">
+    <img src="assets/Favicon_SVG.svg" class="topbar-avatar" />
+    <span class="topbar-name">Ice Ananya</span>
+  </div>
+
+  <button class="topbar-menu" id="openMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <button class="menu-close" id="closeMenu">Close ✕</button>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+
+<!-- MOBILE MENU PANEL -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="menu-list">
+    <a href="index.html" style="padding: 12px 12xp 12px 12px;">Home</a>
+
+    <div class="menu-section">WORK</div>
+    <a href="zTerminal.html">zTerminal</a>
+    <a href="regalia.html">Regalia</a>
+    <a href="radiant.html">Radiant</a>
+    <a href="nexus.html">Nexus</a>
+    <a href="aisekai.html">Aisekai</a>
+    <a class="active" href="coindee.html">Coindee</a>
+  </nav>
+
+  <a class="menu-resume" href="resume.pdf">📁 Resume</a>
+</div>
+
 <!-- HERO SECTION -->
 <section class="project-hero">
     
@@ -200,7 +236,7 @@
 
         <div class="case-media-grid-full-noframe">
           <div class="media-card-full">
-            <div style="width: 51.7vw; margin-left: -0.9vw;">
+            <div style="width: 103%; margin-left: -0.9vw;">
               <img src="assets/Coindee/F_Coindee Graphic.png">
             </div>
           </div>
@@ -424,6 +460,18 @@
         behavior: "smooth"
       });
     });
+  });
+
+  const openMenu = document.getElementById("openMenu");
+  const closeMenu = document.getElementById("closeMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  openMenu?.addEventListener("click", () => {
+    document.body.classList.add("menu-open");
+  });
+
+  closeMenu?.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
   });
 
 </script>
